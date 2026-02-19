@@ -10,4 +10,4 @@ printenv | while IFS='=' read -r name value; do
 done
 
 # Execute the RDF-Connect pipeline
-exec npx rdfc rdfc-pipeline.ttl
+exec npx --node-options='--max-old-space-size=16384' rdfc rdfc-pipeline.ttl
