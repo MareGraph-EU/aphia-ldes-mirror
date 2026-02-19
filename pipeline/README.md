@@ -32,6 +32,7 @@ docker run \
 -e LDES_MIRROR_URL_PATH=/aphia-mirror/ldes \
 -e STORE_TYPE=redis \
 -e STORE_URL=default:mypassword@[REDIS_IP]:6379 \
+-e NODE_HEAP_SIZE=16384 \
 -v ./state:/rdfc-pipeline/state \
 aphia-pipeline
 -
@@ -42,4 +43,6 @@ The above command executes the pipeline, which will:
 1. replicate the Aphia LDES (`SOURCE_LDES_URL`), 
 2. apply a different fragmentation strategy (a time-based B+Tree) 
 3. that will be persisted in a data store (`STORE_TYPE`://`STORE_URL`) and,
-3. that can be published as a mirrored LDES using a given URL (`LDES_MIRROR_BASE_URL`+`LDES_MIRROR_URL`).    
+3. that can be published as a mirrored LDES using a given URL (`LDES_MIRROR_BASE_URL`+`LDES_MIRROR_URL`).
+
+Note that the `NODE_HEAP_SIZE` environment variable is set to `16384` (16GB) to prevent the pipeline from crashing due to memory exhaustion when processing this large LDES datasets. This is necessary due to the structural configuration of this LDES (a linked list starting from the newest fragment), which forces the ldes-client to fully load the whole stream in memory before it can emit members in an `ascending` order
