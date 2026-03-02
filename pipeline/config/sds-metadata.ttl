@@ -9,6 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 <${SOURCE_LDES_URL}> a sds:Stream;
+#<https://aphia.org/feed> a sds:Stream;
   p-plan:wasGeneratedBy [
     a p-plan:Activity;
     rdfs:comment """
@@ -32,5 +33,6 @@
     ldes:timestampPath dct:modified;
     ldes:versionOfPath dct:isVersionOf;
     dcat:identifier <${LDES_MIRROR_BASE_URL}${LDES_MIRROR_URL_PATH}>;
+    #dcat:identifier <http://localhost:8080/aphia-mirror>;
   ].
 
