@@ -3,9 +3,7 @@
 @prefix rdfc: <https://w3id.org/rdf-connect#>.
 @prefix rdfl: <https://w3id.org/rdf-lens/ontology#>.
 @prefix tree: <https://w3id.org/tree#>.
-#@prefix dct: <http://purl.org/dc/terms/>.
-# TEMPORAL FIX FOR THE TYPO IN APHIA
-@prefix dct: <https://purl.org/dc/terms/>.
+@prefix dct: <http://purl.org/dc/terms/>.
 
 #########################################
 ### Import runners and processors

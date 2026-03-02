@@ -1,8 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix dcat: <http://www.w3.org/ns/dcat#>.
-#@prefix dct: <http://purl.org/dc/terms/>.
-# TEMPORAL FIX FOR THE TYPO IN APHIA
-@prefix dct: <https://purl.org/dc/terms/>.
+@prefix dct: <http://purl.org/dc/terms/>.
 @prefix ldes: <https://w3id.org/ldes#>.
 @prefix taxon-name: <https://aphia.org/ns/taxon-name/>.
 @prefix p-plan: <http://purl.org/net/p-plan#>.
@@ -10,8 +8,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-#<${SOURCE_LDES_URL}> a sds:Stream;
-<https://aphia.org/feed> a sds:Stream;
+<${SOURCE_LDES_URL}> a sds:Stream;
   p-plan:wasGeneratedBy [
     a p-plan:Activity;
     rdfs:comment """
@@ -34,7 +31,6 @@
     dcat:publisher <http://julianrojas.org#me>;
     ldes:timestampPath dct:modified;
     ldes:versionOfPath dct:isVersionOf;
-    #dcat:identifier <${LDES_MIRROR_BASE_URL}${LDES_MIRROR_URL_PATH}>;
-    dcat:identifier <http://localhost:8080/aphia-mirror/ldes>;
+    dcat:identifier <${LDES_MIRROR_BASE_URL}${LDES_MIRROR_URL_PATH}>;
   ].
 
